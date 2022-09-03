@@ -1,16 +1,16 @@
 import { Button, Card } from "react-bootstrap"
+import { useShoppingCart } from "../context/ShoppingCatrContext"
+import { StoreItemsProps } from "../types/customTypes"
 import { formatCurrency } from "../utilities/formatCurrency"
 import { ManageItem } from "./ManageItem"
 
-type StoreItemsProps = {
-  id: number,
-  name: string,
-  price: number,
-  imgUrl: string,
-}
-
 export function StoreItem({ id, name, price, imgUrl }: StoreItemsProps) {
-  const quantity: number = 1
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+  } = useShoppingCart()
+
+  const quantity = getItemQuantity(id)
 
   return (
     <Card className="h-100">
@@ -29,9 +29,9 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemsProps) {
           {
             quantity > 0
               ?
-              <ManageItem quantity={quantity} />
+              <ManageItem quantity={quantity} id={id}/>
               :
-              <Button className="w-100">+ Add To Cart</Button>
+              <Button onClick={() => increaseCartQuantity(id)} className="mt-5 w-100">+ Add To Cart</Button>
           }
         </div>
       </Card.Body>
