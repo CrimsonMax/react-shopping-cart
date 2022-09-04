@@ -1,10 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCatrContext";
-
-interface Quantity {
-  quantity: number,
-  id: number
-}
+import { Quantity } from "../interfaces/myInterfaces";
 
 export function ManageItem({ quantity, id }: Quantity) {
   const {

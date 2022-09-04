@@ -22,7 +22,7 @@ export function Navbar() {
         {cartQuantity > 0 && (
           <Button
             onClick={openCart}
-            style={{ width: "3rem", height: "3rem", position: "relative" }}
+            style={{ width: "2.5rem", height: "2.5rem", position: "relative" }}
             variant="outline-primary"
             className="rounded-circle"
           >
@@ -38,8 +38,8 @@ export function Navbar() {
               className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
               style={{
                 color: "white",
-                width: "1.5rem",
-                height: "1.5rem",
+                width: "1.3rem",
+                height: "1.3rem",
                 position: "absolute",
                 bottom: 0,
                 right: 0,
